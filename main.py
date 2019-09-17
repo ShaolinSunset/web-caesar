@@ -1,7 +1,5 @@
-from flask import Flask
-import cgi
-import os
-import jinja2
+from flask import Flask, request
+from caesar import rotate_string
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -40,5 +38,10 @@ form = """<!DOCTYPE html>
 @app.route("/")
 def index():
     return form
+
+@app.route("/ methods=['POST']")
+def encrypt():
+    return form
+
 
 app.run()
