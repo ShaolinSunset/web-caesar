@@ -3,8 +3,6 @@ import cgi
 import os
 import jinja2
 
-template
-
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
@@ -29,11 +27,11 @@ form = """<!DOCTYPE html>
     </head>
     <body>
       <!-- create your form here -->
-        <form action="text" method = "POST">
-            <label for="">LABEL NAME:</label>
-            <input id="" type="text" name="rot"/>
-            <textarea id="" type="text" name="text"/>
-            <input type="submit" />
+        <form method = "POST">
+            <label for="input">Rotate by:</label>
+            <input type="text" name="rot" value="0"/>
+            <textarea type="text" name="text"></textarea>
+            <input type="submit"/>
         </form>
     </body>
 </html>"""
@@ -41,6 +39,6 @@ form = """<!DOCTYPE html>
 
 @app.route("/")
 def index():
-    return "Hello World"
+    return form
 
 app.run()
